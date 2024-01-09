@@ -3,11 +3,10 @@ package com.movie.movied.ui.fragment
 import android.os.Bundle
 import android.view.View
 import com.movie.movied.R
-import com.movie.movied.data.di.TMDBRepository
-import com.movie.movied.databinding.FragmentMainBinding
+import com.movie.movied.databinding.FragmentDetailMoveBinding
 import com.movie.movied.ui.base.ui.BaseFragment
 
-class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
+class DetailMoveFragment : BaseFragment<FragmentDetailMoveBinding>(R.layout.fragment_detail_move) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -17,7 +16,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
     }
 
     private fun setUpBind() {
-        TMDBRepository.getMovieList()
+
     }
 
     private fun setUpObserver() {
