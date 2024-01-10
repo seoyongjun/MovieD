@@ -10,5 +10,21 @@
         android:name="com.movie.movied.ui.fragment.MainFragment"
         tools:layout="@layout/fragment_main">
 
+        <action
+            android:id="@+id/action_mainFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment">
+            <argument
+                android:name="id"
+                app:argType="long" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.movie.movied.ui.fragment.DetailMovieFragment"
+        tools:layout="@layout/fragment_detail_movie" >
+        <argument
+            android:name="id"
+            app:argType="long" />
     </fragment>
 </navigation>
