@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.MovieD" parent="Base.Theme.MovieD" />
+
+    <style name="filterButton">
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
 </resources>
