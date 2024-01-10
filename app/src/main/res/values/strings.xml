@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MovieD</string>
+
+    <string name="movie_list_popular">인기순</string>
+    <string name="movie_list_rating">평점순</string>
+    <string name="movie_list_newest">신규순</string>
+    <string name="movie_list_favorite">즐겨찾기</string>
+
+    <string name="search_list">검색어</string>
+    <string name="movie_overview">개요</string>
+    <string name="movie_cast">출연진</string>
 </resources>
