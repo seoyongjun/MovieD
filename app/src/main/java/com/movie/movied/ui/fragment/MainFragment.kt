@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.movie.movied.R
@@ -67,33 +68,40 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 
     private fun setUpFilterButton() {
         binding.rbPopular.setOnClickListener{
+            binding.progress.isVisible = true
             TMDBRepository.getMoviePopularList(1,
                 onSuccess = {
                     (binding.rvMovieList.adapter as MovieListAdapter).set(it)
+                    binding.progress.isVisible = false
                 }, onError = {
                     debug("error")
                 })
         }
 
         binding.rbRating.setOnClickListener {
+            binding.progress.isVisible = true
             TMDBRepository.getMovieTopRatedList(1,
                 onSuccess = {
                     (binding.rvMovieList.adapter as MovieListAdapter).set(it)
+                    binding.progress.isVisible = false
                 }, onError = {
                     debug("error")
                 })
         }
 
         binding.rbNewest.setOnClickListener {
+            binding.progress.isVisible = true
             TMDBRepository.getDiscoverMoviesList(1, onSuccess = {
                 (binding.rvMovieList.adapter as MovieListAdapter).set(it)
+                binding.progress.isVisible = false
             }, onError = {
                 debug("error")
             })
         }
 
         binding.rbFavorite.setOnClickListener {
-
+            binding.progress.isVisible = true
+            binding.progress.isVisible = false
         }
     }
 
@@ -102,7 +110,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             TMDBRepository.getMoviePopularList(page = 1,
                 onSuccess = {
-                    debug("Repository ${it}")
+                    binding.progress.isVisible = false
                     adapter = MovieListAdapter().apply {
                         set(it)
                         listener = onMovieListRecyclerViewItemClickListener

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -81,9 +82,11 @@ class DetailMovieFragment : BaseFragment<FragmentDetailMovieBinding>(R.layout.fr
             TMDBRepository.getMovieCredits(args.id.toInt(), {
                 adapter = CastListAdapter().apply {
                     set(it.cast)
+                    binding.progress.isVisible = false
                 }
             }, {
                 debug("error")
+                binding.progress.isVisible = false
             })
         }
 
@@ -93,9 +96,11 @@ class DetailMovieFragment : BaseFragment<FragmentDetailMovieBinding>(R.layout.fr
                 adapter = VideoListAdapter().apply {
                     set(it.results)
                     listener = onVideoListRecyclerViewItemClickListener
+                    binding.progress.isVisible = false
                 }
             }, {
                 debug("error")
+                binding.progress.isVisible = false
             })
         }
     }
